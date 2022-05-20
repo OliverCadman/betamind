@@ -14,7 +14,7 @@ list_to_train = [
     "Hello",
     "Hello human!",
     "How are you",
-    "I am fine thank you",
+    "I'm fine thank you",
     "what's your name?",
     "I am just a chatbot, but you my dear may call me superbot",
     "what is your favourite food",
@@ -29,7 +29,7 @@ list_to_train = [
     "well yeah , I hate plugins",
     "what is your favourite drink",
     "computers dont drink",
-    "bye",
+    "Bye",
     "Goodbye!",
     "You are very clever",
     "Thank you, I was trained that way",
@@ -39,6 +39,10 @@ list_to_train = [
     "Stefan says, BETAMINDS have won",
     "Why",
     "It is classified, I could tell you but I would have to kill you!",
+    "Where are you",
+    "I'm on the internet",
+    "How are you?",
+    "Fine, thank you!",
 ]
 
 chatterbotCorpusTrainer = ChatterBotCorpusTrainer(bot)
