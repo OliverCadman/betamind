@@ -55,6 +55,10 @@
     margin: 1rem 0 .5rem 0;
 }
 
+.reset_password_button {
+    margin: 3rem 0 1rem 0;
+}
+
 /* Tablet screens */
 @media screen and (min-width: 768px) {
 
