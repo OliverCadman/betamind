@@ -4,16 +4,6 @@ from django.forms.models import modelformset_factory
 from .models import Mood, Post, Comment
 from .forms import PostForm
 
-
-# @login_required
-# def select_mood(request):
-#     """
-#     Select mood to create a post
-#     """
-#     mood_form = MoodForm()
-#     return render(request, 'blog/select_mood.html', {'mood_form': mood_form})
-
-
 @login_required
 def blog(request):
     """

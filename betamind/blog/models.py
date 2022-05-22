@@ -7,24 +7,6 @@ from django.utils import timezone
 from datetime import datetime
 now = timezone.now
 
-STATUS = (
-    (0, "Draft"),
-    (1, "Publish")
-)
-
-MOOD = (
-    ("Happy", "Happy"),
-    ("Sad", "Sad"),
-    ("Angry", "Angry"),
-    ("Surprised", "Surprised"),
-    ("Scared", "Scared"),
-    ("Disgusted", "Disgusted"),
-    ("Anxious", "Anxious"),
-    ("Bored", "Bored"),
-    ("Tired", "Tired"),
-    ("Depressed", "Depressed"),
-    ("Frustrated", "Frustrated"),
-)
 
 class Mood(models.Model): 
     """
@@ -34,13 +16,14 @@ class Mood(models.Model):
         verbose_name = "Mood"
         verbose_name_plural = "Moods"
 
-    name = models.CharField(max_length=200, unique=True)
-    mood = models.CharField(choices=MOOD, max_length=254, default="Happy")
+    mood = models.CharField(max_length=254, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
 
     def __str__(self):
         return self.mood
 
+def get_absolute_url(self):
+    return reverse('blog_index')
 
 class Post(models.Model):
     title = models.CharField(max_length=254, unique=True)
