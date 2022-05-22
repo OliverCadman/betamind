@@ -15,7 +15,6 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ['title', 'post_sender', 'created_at']
     list_filter = ['post_sender', 'title', 'created_at']
     search_fields = ['title', 'content', 'post_sender']
-    prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(Comment)

@@ -1,34 +1,140 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static "css/blog.css" %}">
+{% endblock %}
+
 {% block content %}
 
 <section class="blog">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
-                <h1 class="text-center display-1 my-3 text-light">BetaMind Board</h1>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row g-4 mt-3">
-            {% for post in posts %}
-			<div class="col-sm-12 col-md-4 my-3">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ post.title }}</h5>
-                        <p class="card-text">{{ post.content }}</p>
-                    </div>
-                    <div class="card-footer">
-                        <p>{{ post.post_sender }} </p>
-                        <small class="text-muted">{{ post.created_at }}</small>
+            <div class="col-12 p-0">
+                <div class="blog_header_wrapper">
+                    <div class="blog_header">
+                        <h1 class="text-center display-1 my-3 primary_font">BetaMind Board</h1>
                     </div>
                 </div>
             </div>
-            {% endfor %}
-            
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row h-100">
+            <div class="col-12 col-lg-3 p-0">
+                 <div class="sidebar">
+                     <div class="post_link_wrapper">
+                        <div class="post_link">
+                            <i class="fas fa-circle-plus link_icon"></i>
+                            <button class="btn sidebar_link secondary_font white_font medium_small_text" data-bs-toggle="modal" data-bs-target="#blog_post_modal">Write a Post</button>
+                        </div>
+                     </div>
+                    <hr class="block_divider_thin">
+                    <div class="filter_sidebar_container accordion" id="filter_accordion">
+                    <div class="accordion-item">
+                        <h5 class="accordion-header custom-accordion-header white_font" id="accordion_header">
+                            <button class="accordion-button secondary_font medium_small_text" type="button" data-bs-toggle="collapse" data-bs-target="#filter_dropdown" aria-expanded="true" aria-controls="filter_dropdown">
+                                Select Your Mood
+                            </button>
+                        </h5>
+                        <div class="accordion-collapse show" id="filter_dropdown" aria-labelledby="accordion_header" data-bs-parent="#filter_accordion">
+                            <div class="accordion-body">
+                                {% for mood in moods %}
+                                    <span class="badge mood_badge_select rounded-pill"><a href="{% url 'blog' %}?mood_name={{mood}}" class="no_underline secondary_font white_font small_text medium_light_font">{{mood.name}}</a></span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div> 
+            </div>
+            <div class="col-12 col-lg-9 h-100">
+                <div class="row g-4 mt-3 h-100">
+                {% if posts %}
+                    {% for post in posts %}
+                        <div class="col-12 my-3">
+                            <div class="card h-100 blog_card {% if forloop.counter|divisibleby:2 %}second{% endif%}">
+                                <div class="card-body blog_card">
+                                    <span class="badge rounded-pill mood_badge secondary_font">{{post.mood}}</span>
+                                    <h5 class="card-title secondary_font">{{ post.title }}</h5>
+                                    <p class="card-text secondary_font">{{ post.content }}</p>
+                                </div>
+                                <div class="card-footer">
+                                    {% if post.post_sender.user_profile.profile_image %}
+                                        <img src="{{MEDIA_URL}}post.post_sender.user_profile.profile_image" alt="post.post_sender" class="blog_card_image" width="50" height="50">
+                                    {% else %}
+                                        <img src="{{MEDIA_URL}}default_profile_image.webp" alt="post.post_sender" class="blog_card_image" width="50" height="50">
+                                    {% endif %}
+                                    <p class="post_sender secondary_font">{{ post.post_sender }} </p>
+                                    <small class="text-muted post_created secondary_font">{{ post.created_at }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                <h4 class="text-center secondary_font medium_text white_font light_font">No Posts</h4>
+                {% endif %}
+                
+                </div>
+            </div>
         </div>
     </div>
 </div>
 </section>
+<aside>
+    <div class="modal fade" id="blog_post_modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="primary_font text-center">Tell us how you're feeling.</h3>
+                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body modal_form_container">
+                    <div class="blog_form_wrapper">
+                        <div class="modal_form_wrapper">
+                            {% if post_form.errors %}
+                            {% for field in post_form %}
+                                {% for error in field.errors %} 
+                                    <div class="alert alert-danger">
+                                        <strong>{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                        {% endif %}
+                            <form action="{% url 'blog' %}" method="POST">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-12">
+                                        {{ post_form.title|as_crispy_field }}
+                                    </div>
+                                    <div class="col-12">
+                                        {{ post_form.content|as_crispy_field }}
+                                    </div>
+                                    <div class="col-12">
+                                        {{ post_form.mood|as_crispy_field }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="submit_btn_wrapper">
+                                            <button type="submit" class="btn secondary_font w-100 white_font submit_btn">Connect</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
 
+{% endblock %}
+
+{% block postload_js %}
+    {{ block.super }}
+    <script src="{% static "js/form_ajax.js" %}"></script>
 {% endblock %}

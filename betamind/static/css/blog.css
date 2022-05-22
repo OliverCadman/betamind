@@ -1,0 +1,161 @@
+.blog_header {
+    background-color: white;
+}
+
+.sidebar {
+    background: transparent;
+}
+
+.sidebar_link {
+    text-decoration: none;
+}
+
+.link_icon {
+    color: #fafafa;
+    margin-left: 1rem;
+}
+
+.mood_card {
+    position: relative;
+}
+
+.mood_badge_select {
+    background-color: rgba(223, 223, 223, 0.3);;
+    margin: 1rem 0.4rem;
+}
+
+.mood_badge {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.accordion-item {
+    background: transparent;
+}
+
+.accordion-button {
+    background: transparent;
+    color: #fafafa;
+}
+
+.accordion-item:first-of-type .accordion-button {
+    border-radius: 0;
+}
+
+.accordion-button:not(.collapsed) {
+    color: black !important;
+}
+
+/* Override default bootstrap SVG colour */
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+}
+
+.accordion-button:after {
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+
+}
+
+.accordion-item {
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #fafafa;
+    background-color: #e7f1ff;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+    border-radius: 0;
+}
+
+/* Blog Post Form */
+
+.control-group {
+    margin: 1rem 0;
+}
+
+.textInput {
+    width: 100%;
+}
+
+/* Blog Cards */
+
+.blog_card_image {
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.post_sender {
+    display: inline;
+}
+
+.card-footer {
+    position: relative;
+    min-height: 85px;
+}
+
+.post_created {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 0.3rem;
+    margin-right: 0.3rem;
+}
+
+
+
+
+@media screen and (min-width: 992px) {
+    /* .sidebar {
+        height: 100%;
+    } */
+
+    .blog_header_wrapper {
+        position: relative
+    }
+
+    .blog_header {
+        width: 40%;
+        color: #212121;
+        border-radius: 0 50px 50px 0;
+
+    }
+
+    .blog_header h1 {
+        color: #212121;
+    }
+
+    .post_link_wrapper {
+        min-height: 75px;
+        display: flex;
+        align-items: center;
+        
+    }
+
+    .post_link {
+        margin-left: 1rem;
+    }
+
+    .link_icon {
+        font-size: 1.25rem;
+    }
+
+    .sidebar_link:hover {
+        color: #fafafa;
+    }
+
+    .mood_badge_select {
+        padding: 0.75rem;
+    }
+
+    .mood_badge_select:hover {
+        transform: scale(1.1);
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+
+    .mood_badge_select a:hover {
+        color: #fafafa;
+    }
+}

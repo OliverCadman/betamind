@@ -9,8 +9,8 @@ body {
     display: flex;
     flex-direction: column;
     /* Test Background as I couldn't stand the harsh white */
-    background: rgb(198, 195, 238);
-    background: linear-gradient(90deg, rgb(220, 219, 235) 1%, rgb(182, 149, 242) 99%);
+    background: rgb(58, 48, 217);
+    background: linear-gradient(90deg, rgba(58, 48, 217, 1) 1%, rgba(75, 34, 149, 1) 99%);
 }
 
 /* Utility Classes */
@@ -60,16 +60,58 @@ body {
     justify-content: center;
 }
 
-
-/* Blog */
-.card {
-
+.block_divider_thin {
+    opacity: 1;
+    border: 1px solid white;
+    margin: 0;
 }
 
-/* Landing Page */
+/* Button BGs */
 
-.img-fluid {
-    
+.coral_bg {
+    background-color: #ff6450;
+}
+
+/* Bootstrap Overrides */
+
+button {
+    outline: none;
+}
+
+
+/* Form Text Styling */
+
+.form-control,
+.control-group {
+    font-family: "Montserrat", sans-serif;
+}
+
+.submit_btn {
+    background-color: rgba(75, 34, 149, 1);
+}
+
+.submit_btn:hover {
+    color: #fafafa;
+    background-color: rgb(86, 43, 167);
+}
+
+
+/* Modal Forms*/
+
+.modal_form_container {
+    background-color: #322643;
+}
+
+.modal_form_wrapper {
+    background-color: #fdfdfd;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 3px 6px -1px rgba(0, 0, 0, .12),
+        0 10px 36px -4px rgba(77, 96, 232, .8);
+}
+
+.no_underline {
+    text-decoration: none;
 }
 
 /* Footer */

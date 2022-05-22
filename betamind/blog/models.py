@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-
+from django.utils.text import slugify
 from django.contrib.auth.models import User
 from django.utils import timezone
 
@@ -26,8 +26,7 @@ def get_absolute_url(self):
     return reverse('blog_index')
 
 class Post(models.Model):
-    title = models.CharField(max_length=254, unique=True)
-    slug = models.SlugField(max_length=40, unique=True)
+    title = models.CharField(max_length=254)
     post_sender = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete= models.CASCADE)
     mood = models.ForeignKey(
         'Mood', null=True, blank=True, on_delete=models.SET_NULL)
@@ -49,6 +48,7 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return "/%s/%s/%s/" % (self.created_at.year, self.created_at.month, self.slug)
+
 
 
 class Comment(models.Model):
