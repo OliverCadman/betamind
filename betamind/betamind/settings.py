@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 import dj_database_url
+import django_heroku
 import os
 
 if os.path.exists("env.py"):
@@ -235,3 +236,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configure AUTH_USER_MODEL to use custom user model.
 AUTH_USER_MODEL = 'core.User'
+
+# Configure BetaMind app for Heroku
+django_heroku.setings(locals())
+
