@@ -43,12 +43,12 @@ If the user doesn't want to talk about their feelings, they should also enjoy th
 ### Wireframes
 The wireframes for this project were developed using [Balsamiq](https://balsamiq.com/).
 
-* [Home Page](documentation/wireframes/betamind_landingpage.png)
-* [Login Page](documentation/wireframes/betamind_login.png)
-* [Register Page](documentation/wireframes/betamind_register.png)
-* [Blog Page](documentation/wireframes/betamind_blog.png)
-* [Blog Post (mood board)](documentation/wireframes/betamind_moodboard.png)
-* [Blog Post](documentation/wireframes/betamind_blogpost.png)
+* [Home Page](docs/wireframes/betamind_landingpage.png)
+* [Login Page](docs/wireframes/betamind_login.png)
+* [Register Page](docs/wireframes/betamind_register.png)
+* [Blog Page](docs/wireframes/betamind_blog.png)
+* [Blog Post (mood board)](docs/wireframes/betamind_moodboard.png)
+* [Blog Post](docs/wireframes/betamind_blogpost.png)
 
 
 ### **Existing Features**
@@ -143,7 +143,6 @@ no error
 ### Lighthouse: 
 ![Home page](static/images/lighthouse_home.png)
 
-
 ## Bugs
 
 ## Deployment
@@ -154,40 +153,12 @@ no error
 - MongoDB account 
 - Heroku account
 
+
 #### Clone the project 
 To make a local clone, follow the following steps. 
 1. Log in to GitHub and go to the repository. 
 2. Click on the green button with the text **"Code".**
 3. Click on **"Open with GitHub Desktop"** and follow the prompts in the GitHub Desktop Application or follow the instructions from **[this link](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)** to see how to clone the repository in other ways. 
-
-#### Working with the local copy
-1. Install all the requirements: Go to the workspace of your local copy. In the terminal window of your IDE type: **pip3 install -r requirements.txt**.
-2. Create a database in MongoDB  
-    - Signup or login to your MongoDB account.
-    - Create a new Database called "mother_earth" in [MongoDB Atlas](https://www.mongodb.com/). .
-    - In the "mother_earth" database create the **quiz_rewards** collection.
-        ###### quiz_rewards
-        ```
-        {
-            _id: <ObjectId>,
-            name: <String>,
-            lat: <Decimal>,
-            lng: <Decimal>,
-            score: <Integer32>,
-        }
-3. Create the environment variables 
-    - Create a .gitignore file in the root directory of the project.
-    - Add the env.py file in the .gitignore.
-    - Create the file env.py. This  will contain all the environment variables.
-    ```
-    import os
-    os.environ.setdefault("IP", "Added by developer")
-    os.environ.setdefault("PORT", "Added by developer")
-    os.environ.setdefault("SECRET_KEY", "Added by developer")
-    os.environ.setdefault("MONGO_URI", "Added by developer")
-    os.environ.setdefault("MONGO_DBNAME", "Added by developer")
-    ```
-4. Run the app: Open your terminal window in your IDE. Type python3 app.py and run the app.
 
 #### Heroku Deployment  
 1. Set up local workspace for Heroku 
@@ -247,6 +218,12 @@ A clone of the repository can be made, which will create a local copy on your ow
 #### Code Content
 - [Stack Overflow](https://stackoverflow.com/)
 
+
+### Error & Bug Solutions
+- [Techie Diaries](https://www.techiediaries.com/resetting-django-migrations/)
+- 
+
+
 ### Media
 
 #### Images
@@ -256,10 +233,6 @@ A clone of the repository can be made, which will create a local copy on your ow
 *  background logo images in contact ,quiz splash screen and quiz are from [Canva](https://www.canva.com)
 * Images gif in the resource section are from google Commons
 * Illustrations from [UnDraw](https://undraw.co/illustrations)
-
-
-#### Audio
-
 
 ## Acknowledegments:
 We thank [Code Institute](https://codeinstitute.net/se/5-day-coding-challenge/?utm_term=code%20institute&utm_campaign=CI+-+SWE+-+Search+-+Brand&utm_source=adwords&utm_medium=ppc&hsa_acc=8983321581&hsa_cam=14660337051&hsa_grp=134087657984&hsa_ad=546251838362&hsa_src=g&hsa_tgt=kwd-319867646331&hsa_kw=code%20institute&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQiArt6PBhCoARIsAMF5wajobw5RmzmDSvl-nqpJtRaVQKF-Znj4iDi1CR3oW-l9rBFnjMP_T1QaAvkOEALw_wcB) for organizing this Hackathon.
