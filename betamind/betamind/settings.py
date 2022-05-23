@@ -228,4 +228,5 @@ if "DEVELOPMENT" not in os.environ:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Configure BetaMind app for Herok
+# Configure BetaMind app for Heroku
+django_heroku.settings(locals())
